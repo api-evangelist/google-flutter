@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "flutter": "https://flutter.dev/ns/",
+    "pub": "https://pub.dev/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Package": {
+      "@id": "pub:Package",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "version": "schema:version",
+        "homepage": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "repository": {
+          "@id": "schema:codeRepository",
+          "@type": "@id"
+        },
+        "publishedAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "license": "schema:license"
+      }
+    },
+
+    "PackageVersion": {
+      "@id": "pub:PackageVersion",
+      "@context": {
+        "version": "schema:version",
+        "archiveUrl": {
+          "@id": "schema:downloadUrl",
+          "@type": "@id"
+        },
+        "published": {
+          "@id": "dcterms:issued",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "PackageScore": {
+      "@id": "pub:PackageScore",
+      "@context": {
+        "grantedPoints": "pub:grantedPoints",
+        "maxPoints": "pub:maxPoints",
+        "likeCount": "schema:interactionCount",
+        "popularityScore": "pub:popularityScore"
+      }
+    }
+  }
+}

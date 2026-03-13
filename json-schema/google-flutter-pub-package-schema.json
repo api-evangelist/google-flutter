@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pub.dev/schemas/package.json",
+  "title": "Pub.dev Package",
+  "description": "Schema for a Dart/Flutter package as returned by the Pub.dev API, including metadata, versions, and pubspec information.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The package name"
+    },
+    "latest": {
+      "$ref": "#/$defs/PackageVersion"
+    },
+    "versions": {
+      "type": "array",
+      "description": "All published versions of the package",
+      "items": {
+        "$ref": "#/$defs/PackageVersion"
+      }
+    }
+  },
+  "$defs": {
+    "PackageVersion": {
+      "type": "object",
+      "description": "A specific version of a package",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Semantic version string"
+        },
+        "pubspec": {
+          "$ref": "#/$defs/Pubspec"
+        },
+        "archive_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the version archive"
+        },
+        "published": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this version was published"
+        }
+      }
+    },
+    "Pubspec": {
+      "type": "object",
+      "description": "The pubspec.yaml contents for a package version",
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "homepage": {
+          "type": "string",
+          "format": "uri"
+        },
+        "repository": {
+          "type": "string",
+          "format": "uri"
+        },
+        "environment": {
+          "type": "object",
+          "properties": {
+            "sdk": {
+              "type": "string",
+              "description": "Dart SDK version constraint"
+            },
+            "flutter": {
+              "type": "string",
+              "description": "Flutter SDK version constraint"
+            }
+          }
+        },
+        "dependencies": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Package dependencies"
+        },
+        "dev_dependencies": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Development-only dependencies"
+        }
+      }
+    }
+  }
+}
