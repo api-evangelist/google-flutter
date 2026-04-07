@@ -8,12 +8,12 @@ modified: '2026-03-16'
 specificationVersion: '0.19'
 type: Index
 tags:
-  - Mobile Development
-  - UI Framework
   - Cross-Platform
   - Dart
-  - Open Source
   - Google
+  - Mobile Development
+  - Open Source
+  - UI Framework
 apis:
   - name: Pub.dev API
     description: >-
@@ -25,8 +25,8 @@ apis:
     humanURL: https://pub.dev/help/api
     baseURL: https://pub.dev/api
     tags:
-      - Packages
       - Dependencies
+      - Packages
       - Registry
     properties:
       - type: Documentation

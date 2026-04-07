@@ -17,10 +17,10 @@ servers:
   - url: https://pub.dev/api
     description: Pub.dev Production API
 tags:
-  - name: Packages
-    description: Operations for searching and retrieving package information
   - name: Documentation
     description: Package documentation endpoints
+  - name: Packages
+    description: Operations for searching and retrieving package information
 paths:
   /search:
     get:
