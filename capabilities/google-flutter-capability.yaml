@@ -1,0 +1,219 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Flutter Pub.dev API
+  description: The Pub.dev API provides programmatic access to the official Dart and Flutter package repository. It allows
+    searching packages, retrieving metadata, version information, package scores, and documentation.
+  tags:
+  - Google
+  - Flutter
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-flutter
+    baseUri: https://pub.dev/api
+    description: Google Flutter Pub.dev API HTTP API.
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: searchpackages
+        method: GET
+        description: Google Flutter Search packages
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Search query string
+        - name: page
+          in: query
+          type: integer
+          description: Page number for pagination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-package
+      path: /packages/{package}
+      operations:
+      - name: getpackage
+        method: GET
+        description: Google Flutter Get package metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-package-versions-version
+      path: /packages/{package}/versions/{version}
+      operations:
+      - name: getpackageversion
+        method: GET
+        description: Google Flutter Get package version
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          required: true
+          description: The package version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-package-score
+      path: /packages/{package}/score
+      operations:
+      - name: getpackagescore
+        method: GET
+        description: Google Flutter Get package score
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documentation-package-latest
+      path: /documentation/{package}/latest/
+      operations:
+      - name: getpackagedocs
+        method: GET
+        description: Google Flutter Get package documentation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-flutter-rest
+    description: REST adapter for Google Flutter Pub.dev API.
+    resources:
+    - path: /search
+      name: searchpackages
+      operations:
+      - method: GET
+        name: searchpackages
+        description: Google Flutter Search packages
+        call: google-flutter.searchpackages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /packages/{package}
+      name: getpackage
+      operations:
+      - method: GET
+        name: getpackage
+        description: Google Flutter Get package metadata
+        call: google-flutter.getpackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /packages/{package}/versions/{version}
+      name: getpackageversion
+      operations:
+      - method: GET
+        name: getpackageversion
+        description: Google Flutter Get package version
+        call: google-flutter.getpackageversion
+        with:
+          version: rest.version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /packages/{package}/score
+      name: getpackagescore
+      operations:
+      - method: GET
+        name: getpackagescore
+        description: Google Flutter Get package score
+        call: google-flutter.getpackagescore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documentation/{package}/latest/
+      name: getpackagedocs
+      operations:
+      - method: GET
+        name: getpackagedocs
+        description: Google Flutter Get package documentation
+        call: google-flutter.getpackagedocs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-flutter-mcp
+    transport: http
+    description: MCP adapter for Google Flutter Pub.dev API for AI agent use.
+    tools:
+    - name: searchpackages
+      description: Google Flutter Search packages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-flutter.searchpackages
+      with:
+        q: tools.q
+        page: tools.page
+      inputParameters:
+      - name: q
+        type: string
+        description: Search query string
+      - name: page
+        type: integer
+        description: Page number for pagination
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpackage
+      description: Google Flutter Get package metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-flutter.getpackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpackageversion
+      description: Google Flutter Get package version
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-flutter.getpackageversion
+      with:
+        version: tools.version
+      inputParameters:
+      - name: version
+        type: string
+        description: The package version
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpackagescore
+      description: Google Flutter Get package score
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-flutter.getpackagescore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpackagedocs
+      description: Google Flutter Get package documentation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-flutter.getpackagedocs
+      outputParameters:
+      - type: object
+        mapping: $.
