@@ -75,6 +75,12 @@ common:
     url: https://flutter.dev/community
   - type: JSON-LD
     url: json-ld/google-flutter-context.jsonld
+  - type: Integrations
+    url: https://flutter.dev/ecosystem
+integrations:
+  - name: Editor support
+  - name: Hot reload
+  - name: DevTools
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
