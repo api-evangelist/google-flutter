@@ -35,7 +35,7 @@ apis:
         url: openapi/flutter-pub-dev-openapi.yml
       - type: Authentication
         url: https://pub.dev/help/api#authentication
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.flutter.dev/get-started
       - type: JSONSchema
         url: json-schema/google-flutter-pub-package-schema.json
@@ -57,7 +57,7 @@ apis:
 common:
   - type: Portal
     url: https://flutter.dev
-  - type: Getting Started
+  - type: GettingStarted
     url: https://docs.flutter.dev/get-started
   - type: Documentation
     url: https://docs.flutter.dev
@@ -65,15 +65,15 @@ common:
     url: https://pub.dev/help/api#authentication
   - type: SDKs
     url: https://docs.flutter.dev/get-started/install
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://policies.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
-  - type: Status
+  - type: StatusPage
     url: https://github.com/flutter/flutter/wiki
   - type: Support
     url: https://flutter.dev/community
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/google-flutter-context.jsonld
   - type: Integrations
     url: https://flutter.dev/ecosystem
