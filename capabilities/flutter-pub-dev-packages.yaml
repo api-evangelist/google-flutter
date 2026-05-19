@@ -1,0 +1,188 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Flutter Pub.dev API — Packages
+  description: 'Google Flutter Pub.dev API — Packages. 4 operations. Lead operation: Google Flutter Get package metadata.
+    Self-contained Naftiko capability covering one Google Flutter business surface.'
+  tags:
+  - Google Flutter
+  - Packages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_FLUTTER_API_KEY: GOOGLE_FLUTTER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: flutter-pub-dev-packages
+    baseUri: https://pub.dev/api
+    description: Google Flutter Pub.dev API — Packages business capability. Self-contained, no shared references.
+    resources:
+    - name: packages-package
+      path: /packages/{package}
+      operations:
+      - name: getpackage
+        method: GET
+        description: Google Flutter Get package metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-package-score
+      path: /packages/{package}/score
+      operations:
+      - name: getpackagescore
+        method: GET
+        description: Google Flutter Get package score
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-package-versions-version
+      path: /packages/{package}/versions/{version}
+      operations:
+      - name: getpackageversion
+        method: GET
+        description: Google Flutter Get package version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: version
+          in: path
+          type: string
+          description: The package version
+          required: true
+    - name: search
+      path: /search
+      operations:
+      - name: searchpackages
+        method: GET
+        description: Google Flutter Search packages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Search query string
+        - name: page
+          in: query
+          type: integer
+          description: Page number for pagination
+  exposes:
+  - type: rest
+    namespace: flutter-pub-dev-packages-rest
+    port: 8080
+    description: REST adapter for Google Flutter Pub.dev API — Packages. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/packages/{package}
+      name: packages-package
+      description: REST surface for packages-package.
+      operations:
+      - method: GET
+        name: getpackage
+        description: Google Flutter Get package metadata
+        call: flutter-pub-dev-packages.getpackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/packages/{package}/score
+      name: packages-package-score
+      description: REST surface for packages-package-score.
+      operations:
+      - method: GET
+        name: getpackagescore
+        description: Google Flutter Get package score
+        call: flutter-pub-dev-packages.getpackagescore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/packages/{package}/versions/{version}
+      name: packages-package-versions-version
+      description: REST surface for packages-package-versions-version.
+      operations:
+      - method: GET
+        name: getpackageversion
+        description: Google Flutter Get package version
+        call: flutter-pub-dev-packages.getpackageversion
+        with:
+          version: rest.version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: searchpackages
+        description: Google Flutter Search packages
+        call: flutter-pub-dev-packages.searchpackages
+        with:
+          q: rest.q
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: flutter-pub-dev-packages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Flutter Pub.dev API — Packages. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-flutter-get-package-metadata
+      description: Google Flutter Get package metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flutter-pub-dev-packages.getpackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-flutter-get-package-score
+      description: Google Flutter Get package score
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flutter-pub-dev-packages.getpackagescore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-flutter-get-package-version
+      description: Google Flutter Get package version
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flutter-pub-dev-packages.getpackageversion
+      with:
+        version: tools.version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-flutter-search-packages
+      description: Google Flutter Search packages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flutter-pub-dev-packages.searchpackages
+      with:
+        q: tools.q
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
