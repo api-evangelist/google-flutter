@@ -80,6 +80,8 @@ common:
   url: json-ld/google-flutter-context.jsonld
 - type: Integrations
   url: https://flutter.dev/ecosystem
+- type: LLMsTxt
+  url: https://docs.flutter.dev/llms.txt
 integrations:
 - name: Editor support
 - name: Hot reload
