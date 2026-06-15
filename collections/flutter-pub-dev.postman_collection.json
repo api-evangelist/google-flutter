@@ -1,0 +1,584 @@
+{
+  "item": [
+    {
+      "id": "539cfad7-3908-4f41-acbb-c62ace30bfd5",
+      "name": "Documentation",
+      "description": {
+        "content": "Package documentation endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6632cb02-7122-4975-8a2f-6d89d783f3a7",
+          "name": "Google Flutter Get package documentation",
+          "request": {
+            "name": "Google Flutter Get package documentation",
+            "description": {
+              "content": "Redirects to the latest API documentation for the package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documentation",
+                ":package",
+                "latest",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "package",
+                  "description": "(Required) The package name"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9e11f04-d3c6-4556-b03d-88b8c80baf04",
+              "name": "Redirect to documentation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documentation",
+                    ":package",
+                    "latest",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) The package name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d56a3bae-e007-4fbc-9807-a03c8862f0a2",
+      "name": "Packages",
+      "description": {
+        "content": "Operations for searching and retrieving package information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "008819bf-d61a-45eb-8346-a79cf4805fe6",
+          "name": "Google Flutter Search packages",
+          "request": {
+            "name": "Google Flutter Search packages",
+            "description": {
+              "content": "Search for packages on pub.dev with optional query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search query string"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c15826bf-9979-428c-8e9f-2877f0b8fcd0",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"packages\": [\n    {\n      \"package\": \"string\"\n    },\n    {\n      \"package\": \"string\"\n    }\n  ],\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67fd57c8-f61d-4560-b16a-5533fa9a3bf9",
+          "name": "Google Flutter Get package metadata",
+          "request": {
+            "name": "Google Flutter Get package metadata",
+            "description": {
+              "content": "Retrieves metadata for a specific package including all versions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "packages",
+                ":package"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "package",
+                  "description": "(Required) The package name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5ba3c1a-38be-41dd-b1c7-745eb97f37a5",
+              "name": "Package metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "packages",
+                    ":package"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) The package name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"latest\": {\n    \"version\": \"string\",\n    \"pubspec\": {\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"description\": \"string\",\n      \"homepage\": \"string\",\n      \"repository\": \"string\",\n      \"environment\": {\n        \"key_0\": \"string\"\n      },\n      \"dependencies\": {\n        \"key_0\": true\n      }\n    },\n    \"archive_url\": \"https://DndZTcECveRtZiJBMYer.mprXFT5h2Op\",\n    \"published\": \"2018-09-19T06:28:35.199Z\"\n  },\n  \"versions\": [\n    {\n      \"version\": \"string\",\n      \"pubspec\": {\n        \"name\": \"string\",\n        \"version\": \"string\",\n        \"description\": \"string\",\n        \"homepage\": \"string\",\n        \"repository\": \"string\",\n        \"environment\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"dependencies\": {\n          \"key_0\": 7422.081357276059,\n          \"key_1\": true\n        }\n      },\n      \"archive_url\": \"https://gbaKLsammqUFjgSSOodnwidx.bdwrmpGJ9byGPif,i3\",\n      \"published\": \"2014-03-27T22:12:06.053Z\"\n    },\n    {\n      \"version\": \"string\",\n      \"pubspec\": {\n        \"name\": \"string\",\n        \"version\": \"string\",\n        \"description\": \"string\",\n        \"homepage\": \"string\",\n        \"repository\": \"string\",\n        \"environment\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"dependencies\": {\n          \"key_0\": 5808.327829827524,\n          \"key_1\": false,\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        }\n      },\n      \"archive_url\": \"http://QXTUtnSqtUJwLFdnwXsBufSAWnc.nfwH-S2-ruEEpX4sJtn0E9+K+IauA\",\n      \"published\": \"1969-03-12T09:28:09.494Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f93598a-9091-42ad-bfe1-d9c551fab925",
+              "name": "Package not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "packages",
+                    ":package"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) The package name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3718077e-42bd-44a4-a524-30ad60d45e7e",
+          "name": "Google Flutter Get package version",
+          "request": {
+            "name": "Google Flutter Get package version",
+            "description": {
+              "content": "Retrieves information for a specific version of a package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "packages",
+                ":package",
+                "versions",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "package",
+                  "description": "(Required) The package name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) The package version"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95940cd5-f456-48fc-8a95-a3d5655d3809",
+              "name": "Version information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "packages",
+                    ":package",
+                    "versions",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) The package name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) The package version"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"pubspec\": {\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"description\": \"string\",\n    \"homepage\": \"string\",\n    \"repository\": \"string\",\n    \"environment\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"dependencies\": {\n      \"key_0\": true,\n      \"key_1\": 895.6587760770285\n    }\n  },\n  \"archive_url\": \"https://pOXYfEJOdQJGeHMYDSLUMAzBE.jkhq+S9VXdZkq0i7zrTBlRfmpdjQn9Y5J4VpHophXRpjZAAzXF\",\n  \"published\": \"1963-01-12T14:05:15.735Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2920f9e1-eb72-41d7-9425-1970d31139ea",
+              "name": "Version not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "packages",
+                    ":package",
+                    "versions",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) The package name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) The package version"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb07008d-63ee-48fc-b4b4-dee88c240183",
+          "name": "Google Flutter Get package score",
+          "request": {
+            "name": "Google Flutter Get package score",
+            "description": {
+              "content": "Retrieves the pub score and metrics for a package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "packages",
+                ":package",
+                "score"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "package",
+                  "description": "(Required) The package name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfb5aa3f-b734-4a0f-aed9-9c0891b61df5",
+              "name": "Package score and metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "packages",
+                    ":package",
+                    "score"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) The package name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"grantedPoints\": 172,\n  \"maxPoints\": 5808,\n  \"likeCount\": 3815,\n  \"popularityScore\": 5593.237566803832,\n  \"lastUpdated\": \"2013-12-05T08:35:37.364Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pub.dev/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b0b2f8d5-b279-4f5c-a3a6-ef47ac8709d3",
+    "name": "Google Flutter Pub.dev API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pub.dev API provides programmatic access to the official Dart and Flutter package repository. It allows searching packages, retrieving metadata, version information, package scores, and documentation.\n\nContact Support:\n Name: Dart Team",
+      "type": "text/plain"
+    }
+  }
+}
