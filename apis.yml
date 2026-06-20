@@ -3,7 +3,7 @@ name: Google Flutter
 description: >-
   Google Flutter is an open-source UI toolkit for building natively compiled applications for mobile, web, and desktop
   from a single codebase, with developer tools including the Pub.dev package API and Dart analysis APIs.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-flutter/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -22,7 +22,7 @@ apis:
       The Pub.dev API provides programmatic access to the official package repository for Dart and Flutter. Developers
       can search for packages, retrieve package metadata and version details, fetch package scores and metrics, and
       access documentation links.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://pub.dev/help/api
     baseURL: https://pub.dev/api
     tags:
@@ -44,7 +44,7 @@ apis:
     description: >-
       The Dart Analysis Server provides a JSON-based protocol for IDE integration, enabling code analysis, completion,
       navigation, refactoring, and diagnostics for Dart and Flutter projects.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://htmlpreview.github.io/?https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
     baseURL: https://localhost
     tags:
