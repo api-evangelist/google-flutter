@@ -55,6 +55,10 @@ apis:
       - type: Documentation
         url: https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-flutter-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-flutter-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/flutterdevofficial
   - type: Portal
@@ -81,6 +85,8 @@ common:
     url: https://flutter.dev/ecosystem
   - type: LlmsText
     url: https://docs.flutter.dev/llms.txt
+  - url: https://medium.com/feed/flutter
+    type: Blog
 integrations:
   - name: Editor support
   - name: Hot reload
