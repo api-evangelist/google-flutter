@@ -55,6 +55,8 @@ apis:
       - type: Documentation
         url: https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-flutter-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-flutter-vulnerability-disclosure.yml
   - type: DomainSecurity
