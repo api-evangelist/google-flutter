@@ -1,26 +1,18 @@
 openapi: 3.1.0
 info:
-  title: Google Flutter Pub.dev API
-  description: >-
-    The Pub.dev API provides programmatic access to the official Dart and Flutter
-    package repository. It allows searching packages, retrieving metadata, version
-    information, package scores, and documentation.
+  title: Google Flutter Pub.dev Documentation Packages API
+  description: The Pub.dev API provides programmatic access to the official Dart and Flutter package repository. It allows searching packages, retrieving metadata, version information, package scores, and documentation.
   version: '2'
   contact:
     name: Dart Team
     url: https://github.com/dart-lang/pub-dev
   termsOfService: https://pub.dev/policy
-externalDocs:
-  description: Pub.dev API Documentation
-  url: https://pub.dev/help/api
 servers:
-  - url: https://pub.dev/api
-    description: Pub.dev Production API
+- url: https://pub.dev/api
+  description: Pub.dev Production API
 tags:
-  - name: Documentation
-    description: Package documentation endpoints
-  - name: Packages
-    description: Operations for searching and retrieving package information
+- name: Packages
+  description: Operations for searching and retrieving package information
 paths:
   /search:
     get:
@@ -28,19 +20,19 @@ paths:
       summary: Google Flutter Search packages
       description: Search for packages on pub.dev with optional query parameters.
       tags:
-        - Packages
+      - Packages
       parameters:
-        - name: q
-          in: query
-          description: Search query string
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Page number for pagination
-          schema:
-            type: integer
-            minimum: 1
+      - name: q
+        in: query
+        description: Search query string
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number for pagination
+        schema:
+          type: integer
+          minimum: 1
       responses:
         '200':
           description: Search results
@@ -54,9 +46,9 @@ paths:
       summary: Google Flutter Get package metadata
       description: Retrieves metadata for a specific package including all versions.
       tags:
-        - Packages
+      - Packages
       parameters:
-        - $ref: '#/components/parameters/package'
+      - $ref: '#/components/parameters/package'
       responses:
         '200':
           description: Package metadata
@@ -72,15 +64,15 @@ paths:
       summary: Google Flutter Get package version
       description: Retrieves information for a specific version of a package.
       tags:
-        - Packages
+      - Packages
       parameters:
-        - $ref: '#/components/parameters/package'
-        - name: version
-          in: path
-          required: true
-          description: The package version
-          schema:
-            type: string
+      - $ref: '#/components/parameters/package'
+      - name: version
+        in: path
+        required: true
+        description: The package version
+        schema:
+          type: string
       responses:
         '200':
           description: Version information
@@ -96,9 +88,9 @@ paths:
       summary: Google Flutter Get package score
       description: Retrieves the pub score and metrics for a package.
       tags:
-        - Packages
+      - Packages
       parameters:
-        - $ref: '#/components/parameters/package'
+      - $ref: '#/components/parameters/package'
       responses:
         '200':
           description: Package score and metrics
@@ -106,53 +98,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PackageScore'
-  /documentation/{package}/latest/:
-    get:
-      operationId: getPackageDocs
-      summary: Google Flutter Get package documentation
-      description: Redirects to the latest API documentation for the package.
-      tags:
-        - Documentation
-      parameters:
-        - $ref: '#/components/parameters/package'
-      responses:
-        '302':
-          description: Redirect to documentation
 components:
-  parameters:
-    package:
-      name: package
-      in: path
-      required: true
-      description: The package name
-      schema:
-        type: string
   schemas:
-    SearchResults:
+    PackageScore:
       type: object
       properties:
-        packages:
-          type: array
-          items:
-            type: object
-            properties:
-              package:
-                type: string
-                description: Package name
-        next:
+        grantedPoints:
+          type: integer
+        maxPoints:
+          type: integer
+        likeCount:
+          type: integer
+        popularityScore:
+          type: number
+        lastUpdated:
           type: string
-          description: URL for the next page of results
-    Package:
-      type: object
-      properties:
-        name:
-          type: string
-        latest:
-          $ref: '#/components/schemas/PackageVersion'
-        versions:
-          type: array
-          items:
-            $ref: '#/components/schemas/PackageVersion'
+          format: date-time
     PackageVersion:
       type: object
       properties:
@@ -184,17 +145,39 @@ components:
         published:
           type: string
           format: date-time
-    PackageScore:
+    Package:
       type: object
       properties:
-        grantedPoints:
-          type: integer
-        maxPoints:
-          type: integer
-        likeCount:
-          type: integer
-        popularityScore:
-          type: number
-        lastUpdated:
+        name:
           type: string
-          format: date-time
+        latest:
+          $ref: '#/components/schemas/PackageVersion'
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageVersion'
+    SearchResults:
+      type: object
+      properties:
+        packages:
+          type: array
+          items:
+            type: object
+            properties:
+              package:
+                type: string
+                description: Package name
+        next:
+          type: string
+          description: URL for the next page of results
+  parameters:
+    package:
+      name: package
+      in: path
+      required: true
+      description: The package name
+      schema:
+        type: string
+externalDocs:
+  description: Pub.dev API Documentation
+  url: https://pub.dev/help/api

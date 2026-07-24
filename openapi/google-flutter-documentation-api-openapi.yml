@@ -1,0 +1,40 @@
+openapi: 3.1.0
+info:
+  title: Google Flutter Pub.dev Documentation API
+  description: The Pub.dev API provides programmatic access to the official Dart and Flutter package repository. It allows searching packages, retrieving metadata, version information, package scores, and documentation.
+  version: '2'
+  contact:
+    name: Dart Team
+    url: https://github.com/dart-lang/pub-dev
+  termsOfService: https://pub.dev/policy
+servers:
+- url: https://pub.dev/api
+  description: Pub.dev Production API
+tags:
+- name: Documentation
+  description: Package documentation endpoints
+paths:
+  /documentation/{package}/latest/:
+    get:
+      operationId: getPackageDocs
+      summary: Google Flutter Get package documentation
+      description: Redirects to the latest API documentation for the package.
+      tags:
+      - Documentation
+      parameters:
+      - $ref: '#/components/parameters/package'
+      responses:
+        '302':
+          description: Redirect to documentation
+components:
+  parameters:
+    package:
+      name: package
+      in: path
+      required: true
+      description: The package name
+      schema:
+        type: string
+externalDocs:
+  description: Pub.dev API Documentation
+  url: https://pub.dev/help/api
