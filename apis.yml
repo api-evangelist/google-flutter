@@ -3,7 +3,19 @@ name: Google Flutter
 description: >-
   Google Flutter is an open-source UI toolkit for building natively compiled applications for mobile, web, and desktop
   from a single codebase, with developer tools including the Pub.dev package API and Dart analysis APIs.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-flutter.png
 url: https://raw.githubusercontent.com/api-evangelist/google-flutter/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -17,44 +29,60 @@ tags:
   - Open Source
   - UI Framework
 apis:
-  - name: Pub.dev API
-    description: >-
-      The Pub.dev API provides programmatic access to the official package repository for Dart and Flutter. Developers
-      can search for packages, retrieve package metadata and version details, fetch package scores and metrics, and
-      access documentation links.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://pub.dev/help/api
-    baseURL: https://pub.dev/api
-    tags:
-      - Dependencies
-      - Packages
-      - Registry
-    properties:
-      - type: Documentation
-        url: https://pub.dev/help/api
-      - type: OpenAPI
-        url: openapi/flutter-pub-dev-openapi.yml
-      - type: Authentication
-        url: https://pub.dev/help/api#authentication
-      - type: GettingStarted
-        url: https://docs.flutter.dev/get-started
-      - type: JSONSchema
-        url: json-schema/google-flutter-pub-package-schema.json
-  - name: Dart Analysis Server Protocol
-    description: >-
-      The Dart Analysis Server provides a JSON-based protocol for IDE integration, enabling code analysis, completion,
-      navigation, refactoring, and diagnostics for Dart and Flutter projects.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://htmlpreview.github.io/?https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
-    baseURL: https://localhost
-    tags:
-      - Code Analysis
-      - IDE
-      - Language Server
-    properties:
-      - type: Documentation
-        url: https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
+- name: Dart Analysis Server Protocol
+  description: >-
+    The Dart Analysis Server provides a JSON-based protocol for IDE integration, enabling code analysis,
+    completion, navigation, refactoring, and diagnostics for Dart and Flutter projects.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: >-
+    https://htmlpreview.github.io/?https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
+  baseURL: https://localhost
+  tags:
+  - Code Analysis
+  - IDE
+  - Language Server
+  properties:
+  - type: Documentation
+    url: https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
+- aid: google-flutter:google-flutter-documentation-api
+  name: Google Flutter Documentation API
+  description: Package documentation endpoints
+  humanURL: https://pub.dev/help/api
+  baseURL: https://pub.dev/api
+  tags:
+  - Documentation
+  properties:
+  - type: OpenAPI
+    url: openapi/google-flutter-documentation-api-openapi.yml
+  - type: Documentation
+    url: https://pub.dev/help/api
+  - type: Authentication
+    url: https://pub.dev/help/api#authentication
+  - type: GettingStarted
+    url: https://docs.flutter.dev/get-started
+  - type: JSONSchema
+    url: json-schema/google-flutter-pub-package-schema.json
+- aid: google-flutter:google-flutter-packages-api
+  name: Google Flutter Packages API
+  description: Operations for searching and retrieving package information
+  humanURL: https://pub.dev/help/api
+  baseURL: https://pub.dev/api
+  tags:
+  - Packages
+  properties:
+  - type: OpenAPI
+    url: openapi/google-flutter-packages-api-openapi.yml
+  - type: Documentation
+    url: https://pub.dev/help/api
+  - type: Authentication
+    url: https://pub.dev/help/api#authentication
+  - type: GettingStarted
+    url: https://docs.flutter.dev/get-started
+  - type: JSONSchema
+    url: json-schema/google-flutter-pub-package-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-flutter/overview
   - type: AgenticAccess
     url: agentic-access/google-flutter-agentic-access.yml
   - type: VulnerabilityDisclosure
