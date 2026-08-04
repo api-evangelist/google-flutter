@@ -1,0 +1,200 @@
+openapi: 3.1.0
+info:
+  title: Google Flutter Pub.dev API
+  description: >-
+    The Pub.dev API provides programmatic access to the official Dart and Flutter
+    package repository. It allows searching packages, retrieving metadata, version
+    information, package scores, and documentation.
+  version: '2'
+  contact:
+    name: Dart Team
+    url: https://github.com/dart-lang/pub-dev
+  termsOfService: https://pub.dev/policy
+externalDocs:
+  description: Pub.dev API Documentation
+  url: https://pub.dev/help/api
+servers:
+  - url: https://pub.dev/api
+    description: Pub.dev Production API
+tags:
+  - name: Documentation
+    description: Package documentation endpoints
+  - name: Packages
+    description: Operations for searching and retrieving package information
+paths:
+  /search:
+    get:
+      operationId: searchPackages
+      summary: Google Flutter Search packages
+      description: Search for packages on pub.dev with optional query parameters.
+      tags:
+        - Packages
+      parameters:
+        - name: q
+          in: query
+          description: Search query string
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number for pagination
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResults'
+  /packages/{package}:
+    get:
+      operationId: getPackage
+      summary: Google Flutter Get package metadata
+      description: Retrieves metadata for a specific package including all versions.
+      tags:
+        - Packages
+      parameters:
+        - $ref: '#/components/parameters/package'
+      responses:
+        '200':
+          description: Package metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Package'
+        '404':
+          description: Package not found
+  /packages/{package}/versions/{version}:
+    get:
+      operationId: getPackageVersion
+      summary: Google Flutter Get package version
+      description: Retrieves information for a specific version of a package.
+      tags:
+        - Packages
+      parameters:
+        - $ref: '#/components/parameters/package'
+        - name: version
+          in: path
+          required: true
+          description: The package version
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Version information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackageVersion'
+        '404':
+          description: Version not found
+  /packages/{package}/score:
+    get:
+      operationId: getPackageScore
+      summary: Google Flutter Get package score
+      description: Retrieves the pub score and metrics for a package.
+      tags:
+        - Packages
+      parameters:
+        - $ref: '#/components/parameters/package'
+      responses:
+        '200':
+          description: Package score and metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackageScore'
+  /documentation/{package}/latest/:
+    get:
+      operationId: getPackageDocs
+      summary: Google Flutter Get package documentation
+      description: Redirects to the latest API documentation for the package.
+      tags:
+        - Documentation
+      parameters:
+        - $ref: '#/components/parameters/package'
+      responses:
+        '302':
+          description: Redirect to documentation
+components:
+  parameters:
+    package:
+      name: package
+      in: path
+      required: true
+      description: The package name
+      schema:
+        type: string
+  schemas:
+    SearchResults:
+      type: object
+      properties:
+        packages:
+          type: array
+          items:
+            type: object
+            properties:
+              package:
+                type: string
+                description: Package name
+        next:
+          type: string
+          description: URL for the next page of results
+    Package:
+      type: object
+      properties:
+        name:
+          type: string
+        latest:
+          $ref: '#/components/schemas/PackageVersion'
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageVersion'
+    PackageVersion:
+      type: object
+      properties:
+        version:
+          type: string
+        pubspec:
+          type: object
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+            description:
+              type: string
+            homepage:
+              type: string
+            repository:
+              type: string
+            environment:
+              type: object
+              additionalProperties:
+                type: string
+            dependencies:
+              type: object
+              additionalProperties: true
+        archive_url:
+          type: string
+          format: uri
+        published:
+          type: string
+          format: date-time
+    PackageScore:
+      type: object
+      properties:
+        grantedPoints:
+          type: integer
+        maxPoints:
+          type: integer
+        likeCount:
+          type: integer
+        popularityScore:
+          type: number
+        lastUpdated:
+          type: string
+          format: date-time

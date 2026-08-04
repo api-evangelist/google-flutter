@@ -1,0 +1,16 @@
+{
+  "provider": "google-flutter",
+  "sources": [
+    "google-flutter-documentation-api-openapi.yml",
+    "google-flutter-packages-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-flutter-documentation-api-openapi.yml",
+    "google-flutter-packages-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

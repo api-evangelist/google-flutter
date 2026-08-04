@@ -1,0 +1,119 @@
+{
+  "info": {
+    "_postman_id": "311fcaca-1fc6-406c-8603-702b12495571",
+    "name": "Google Flutter Pub.dev Documentation API",
+    "description": "The Pub.dev API provides programmatic access to the official Dart and Flutter package repository. It allows searching packages, retrieving metadata, version information, package scores, and documentation.\n\nContact Support:\n Name: Dart Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:49:10.000Z",
+    "updatedAt": "2026-07-28T01:49:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-311fcaca-1fc6-406c-8603-702b12495571"
+  },
+  "item": [
+    {
+      "name": "documentation",
+      "item": [
+        {
+          "name": "{package}",
+          "item": [
+            {
+              "name": "latest",
+              "item": [
+                {
+                  "name": "Google Flutter Get package documentation",
+                  "id": "6df0eccc-374a-4aa6-af76-876249c21b2e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/documentation/:package/latest/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documentation",
+                        ":package",
+                        "latest",
+                        ""
+                      ],
+                      "variable": [
+                        {
+                          "id": "e10263a4-eb35-4511-a4ae-7808854e296b",
+                          "key": "package",
+                          "value": "<string>",
+                          "description": "(Required) The package name"
+                        }
+                      ]
+                    },
+                    "description": "Redirects to the latest API documentation for the package."
+                  },
+                  "response": [
+                    {
+                      "id": "bd334081-83c9-4d9b-aaa3-5eff69e08f59",
+                      "name": "Redirect to documentation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/documentation/:package/latest/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documentation",
+                            ":package",
+                            "latest",
+                            ""
+                          ],
+                          "variable": [
+                            {
+                              "key": "package"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Found",
+                      "code": 302,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:49:11.000Z",
+                      "updatedAt": "2026-07-28T01:49:11.000Z",
+                      "uid": "35240-bd334081-83c9-4d9b-aaa3-5eff69e08f59"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:49:11.000Z",
+                  "updatedAt": "2026-07-28T01:49:11.000Z",
+                  "uid": "35240-6df0eccc-374a-4aa6-af76-876249c21b2e"
+                }
+              ],
+              "id": "7f2a0823-cf0d-4299-8154-8f543fc37419",
+              "createdAt": "2026-07-28T01:49:11.000Z",
+              "updatedAt": "2026-07-28T01:49:11.000Z",
+              "uid": "35240-7f2a0823-cf0d-4299-8154-8f543fc37419"
+            }
+          ],
+          "id": "99c1f540-d894-4ae5-8b74-6565e51c614e",
+          "createdAt": "2026-07-28T01:49:11.000Z",
+          "updatedAt": "2026-07-28T01:49:11.000Z",
+          "uid": "35240-99c1f540-d894-4ae5-8b74-6565e51c614e"
+        }
+      ],
+      "id": "ccaf15b9-d8fd-4169-9fd3-1d20e5d69af5",
+      "createdAt": "2026-07-28T01:49:11.000Z",
+      "updatedAt": "2026-07-28T01:49:11.000Z",
+      "uid": "35240-ccaf15b9-d8fd-4169-9fd3-1d20e5d69af5"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://pub.dev/api"
+    }
+  ]
+}
