@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Flutter Pub.dev Documentation API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documentation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Flutter Get package documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pub.dev/api/documentation/:package/latest/",
+            "params": [
+              {
+                "name": "package",
+                "value": "",
+                "type": "path",
+                "description": "The package name"
+              }
+            ]
+          },
+          "docs": "Redirects to the latest API documentation for the package."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

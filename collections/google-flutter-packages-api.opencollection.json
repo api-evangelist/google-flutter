@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Flutter Pub.dev Documentation Packages API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Packages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Flutter Search packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pub.dev/api/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query string"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              }
+            ]
+          },
+          "docs": "Search for packages on pub.dev with optional query parameters."
+        },
+        {
+          "info": {
+            "name": "Google Flutter Get package metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pub.dev/api/packages/:package",
+            "params": [
+              {
+                "name": "package",
+                "value": "",
+                "type": "path",
+                "description": "The package name"
+              }
+            ]
+          },
+          "docs": "Retrieves metadata for a specific package including all versions."
+        },
+        {
+          "info": {
+            "name": "Google Flutter Get package version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pub.dev/api/packages/:package/versions/:version",
+            "params": [
+              {
+                "name": "package",
+                "value": "",
+                "type": "path",
+                "description": "The package name"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path",
+                "description": "The package version"
+              }
+            ]
+          },
+          "docs": "Retrieves information for a specific version of a package."
+        },
+        {
+          "info": {
+            "name": "Google Flutter Get package score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pub.dev/api/packages/:package/score",
+            "params": [
+              {
+                "name": "package",
+                "value": "",
+                "type": "path",
+                "description": "The package name"
+              }
+            ]
+          },
+          "docs": "Retrieves the pub score and metrics for a package."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

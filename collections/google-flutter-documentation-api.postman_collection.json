@@ -1,0 +1,112 @@
+{
+  "item": [
+    {
+      "id": "853c7a60-20a5-4d72-b4ff-2651eab0f646",
+      "name": "Documentation",
+      "description": {
+        "content": "Package documentation endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0aca65c-622c-433b-b6c9-3f8e9e0681ce",
+          "name": "Google Flutter Get package documentation",
+          "request": {
+            "name": "Google Flutter Get package documentation",
+            "description": {
+              "content": "Redirects to the latest API documentation for the package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documentation",
+                ":package",
+                "latest",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "package",
+                  "description": "(Required) The package name"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17c057c3-2b36-43b5-830e-31c00a6ec47f",
+              "name": "Redirect to documentation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documentation",
+                    ":package",
+                    "latest",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) The package name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pub.dev/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c95ca412-4e50-430e-8281-9fefc4d0a8c2",
+    "name": "Google Flutter Pub.dev Documentation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pub.dev API provides programmatic access to the official Dart and Flutter package repository. It allows searching packages, retrieving metadata, version information, package scores, and documentation.\n\nContact Support:\n Name: Dart Team",
+      "type": "text/plain"
+    }
+  }
+}
