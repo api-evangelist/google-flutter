@@ -100,6 +100,8 @@ apis:
   - type: JSONSchema
     url: json-schema/google-flutter-pub-package-schema.json
 common:
+  - type: Website
+    url: https://www.flutter.dev/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/google-flutter/overview
   - type: AgenticAccess
