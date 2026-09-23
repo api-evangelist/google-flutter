@@ -1,8 +1,7 @@
 {
   "provider": "google-flutter",
   "sources": [
-    "google-flutter-documentation-api-openapi.yml",
-    "google-flutter-packages-api-openapi.yml"
+    "_original/flutter-pub-dev-openapi.yml"
   ],
   "outputs": [
     "google-flutter-documentation-api-openapi.yml",
@@ -11,6 +10,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "flutter-pub-dev-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "google-flutter-documentation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-flutter-packages-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
