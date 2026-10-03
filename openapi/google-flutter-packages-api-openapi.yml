@@ -99,35 +99,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/PackageScore'
 components:
+  parameters:
+    package:
+      name: package
+      in: path
+      required: true
+      description: The package name
+      schema:
+        type: string
   schemas:
-    SearchResults:
-      type: object
-      properties:
-        packages:
-          type: array
-          items:
-            type: object
-            properties:
-              package:
-                type: string
-                description: Package name
-        next:
-          type: string
-          description: URL for the next page of results
-    PackageScore:
-      type: object
-      properties:
-        grantedPoints:
-          type: integer
-        maxPoints:
-          type: integer
-        likeCount:
-          type: integer
-        popularityScore:
-          type: number
-        lastUpdated:
-          type: string
-          format: date-time
     PackageVersion:
       type: object
       properties:
@@ -159,6 +139,20 @@ components:
         published:
           type: string
           format: date-time
+    SearchResults:
+      type: object
+      properties:
+        packages:
+          type: array
+          items:
+            type: object
+            properties:
+              package:
+                type: string
+                description: Package name
+        next:
+          type: string
+          description: URL for the next page of results
     Package:
       type: object
       properties:
@@ -170,14 +164,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PackageVersion'
-  parameters:
-    package:
-      name: package
-      in: path
-      required: true
-      description: The package name
-      schema:
-        type: string
+    PackageScore:
+      type: object
+      properties:
+        grantedPoints:
+          type: integer
+        maxPoints:
+          type: integer
+        likeCount:
+          type: integer
+        popularityScore:
+          type: number
+        lastUpdated:
+          type: string
+          format: date-time
 externalDocs:
   description: Pub.dev API Documentation
   url: https://pub.dev/help/api
